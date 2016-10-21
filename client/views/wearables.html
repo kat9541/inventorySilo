@@ -1,0 +1,23 @@
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Options</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="wear in wearables track by $index">
+                <td ng-model="wear.id">{{wear.id}}</td>
+                <td ng-model="wear.name">{{wear.name}}</td>
+                <td ng-model="wear.typeprod">{{wear.typeprod}}</td>
+                <td ng-model="wear.status">{{wear.status}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click=>Edit</button>
+                    <button class="btn btn-danger" ng-click="deleteWearable(wear.id, $index)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
