@@ -49,8 +49,38 @@ knex.schema.createTableIfNotExists('parts_', function(table){
   console.log('parts_ Table Created');
 });
 
+knex.schema.createTableIfNotExists('orders', function(table){
+ 
+  table.increments('id').primary();
+  table.integer('partid');
+  table.integer('quantity');
+  table.decimal('totalcost');
 
+}).then(function () {
+  console.log('orders Table Created');
+});
 
+knex.schema.createTableIfNotExists('products_refurb', function(table){
+ 
+  table.increments('id').primary();
+  table.string('name');
+  table.string('type');
+  table.integer('quantity');
+
+}).then(function () {
+  console.log('products_refurb Table Created');
+});
+
+knex.schema.createTableIfNotExists('parts_requests', function(table){
+ 
+  table.increments('id').primary();
+  table.dateTime('dateSent');
+  table.string('seen');
+  table.string('response');
+
+}).then(function () {
+  console.log('parts requested Table Created');
+});
 
 
 //Loops and prints each row in the Transactions table
