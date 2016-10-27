@@ -1,5 +1,5 @@
 var app = require('./app');
-
+var data_handler = require('./data_handler');
 
 app.set('port', process.env.PORT || 3000);
 
