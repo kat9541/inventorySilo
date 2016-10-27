@@ -37,6 +37,18 @@ knex.schema.createTableIfNotExists('products_', function(table){
   console.log('Products_ Table Created');
 });
 
+knex.schema.createTableIfNotExists('parts_', function(table){
+ 
+  table.increments('id').primary();
+  table.string('name');
+  table.integer('quantity');
+  table.integer('cost');
+  table.integer('RecAmt');
+
+}).then(function () {
+  console.log('Parts_ Table Created');
+});
+
 
 
 
