@@ -46,7 +46,7 @@ knex.schema.createTableIfNotExists('parts_', function(table){
   table.integer('RecAmt');
 
 }).then(function () {
-  console.log('Parts_ Table Created');
+  console.log('parts_ Table Created');
 });
 
 
