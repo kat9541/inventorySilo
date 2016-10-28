@@ -21,4 +21,14 @@ router.get('/api/allparts',db.getAllParts);
 router.get('/api/parts/:id', db.getPart);
 router.get('/api/partsexpenses', db.getPartsExpenses);
 
+// might need more than just these???
+
+// how to add new part
+//router.post('/api/parts/newrequest', db.);
+
+// how to remove part when no longer needed in production by manufacturing
+// router.post('/api/parts/:id', db.);
+
+// router.
+
 module.exports = router;

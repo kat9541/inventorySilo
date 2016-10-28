@@ -1,23 +1,31 @@
 <div>
-    <table class="table table-bordered">
-        <thead>
+    <navbar></navbar>
+    <div>
+        <table class="table table-bordered">
+            <thead>
             <th>Id</th>
             <th>Name</th>
             <th>Type</th>
+            <th>Quantity</th>
+            <th>Active?</th>
             <th>Status</th>
             <th>Options</th>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             <tr ng-repeat="wear in wearables track by $index">
                 <td ng-model="wear.id">{{wear.id}}</td>
                 <td ng-model="wear.name">{{wear.name}}</td>
                 <td ng-model="wear.typeprod">{{wear.typeprod}}</td>
-                <td ng-model="wear.status">{{wear.status}}</td>
+                <td ng-model="wear.quantity">{{wear.quantity}}</td>
+                <td ng-model="wear.active">{{wear.active}}</td>
+                <!--<td ng-model="wear.status">{{wear.status}}</td>-->
                 <td>
                     <button class="btn btn-primary" ng-click=>Edit</button>
                     <button class="btn btn-danger" ng-click="deleteWearable(wear.id, $index)">Delete</button>
                 </td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
+

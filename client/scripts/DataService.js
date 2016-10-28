@@ -1,26 +1,40 @@
 angular.module('Inventory').service('dataService', ['$http', function ($http) {
 
-    var urlBase = '/api/wearables';
+    var urlBaseWearables = '/api/wearables';
+    var urlBaseParts = '/api/parts';
 
     this.addWearable = function (wearable) {
-        return $http.post(urlBase, wearable);
+        return $http.post(urlBaseWearables, wearable);
     };
     
     this.getWearables = function () {
         return $http.get('/api/allwearables');
     };
 
-    this.getWearable = function (id) {
-
-        var req = {
-            method: 'GET',
-            url: 'http://129.21.208.176:3000/api/wearable/ + id'
-        };
-        return $http.get(urlBase + '/' + id);
-        //return $http.get(req)
+    this.getWearableById = function (id) {
+        return $http.get(urlBaseWearables + '/' + id);
     };
 
     this.deleteWearable = function (id) {
-      return $http.delete(urlBase + '/' + id);
+      return $http.delete(urlBaseWearables + '/' + id);
     };
+
+    // Not Implemented Yet???
+/*
+
+     this.getAllParts = function () {
+     return $http.get(urlBaseParts);
+     };
+
+     this.getPartById = function (id) {
+     return $http.get(urlBaseParts + '/' + id);
+     };
+
+     this.getPartsExpenses = function () {
+     return $http.get(urlBaseParts + expenses);
+     };
+
+*/
+
+
 }]);

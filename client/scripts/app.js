@@ -8,8 +8,16 @@ app.config(['$routeProvider', function ($routeProvider) {
             controller: 'InventoryMgmtCtlr'
         })
         .when('/wearables', {
-            templateUrl: 'views/wearables.html',
-            controller: 'InventoryMgmtCtlr'
+            templateUrl: 'views/wearabledashboard.html',
+            controller: 'WearablesCtlr'
+        })
+        .when('/parts', {
+            templateUrl: 'views/partdashboard.html',
+            controller: 'PartsCtlr'
+        })
+        .when('/requests', {
+            templateUrl: 'views/requestdashboard.html',
+            controller: 'RequestsCtlr'
         })
         .otherwise({ redirectTo: '/wearables'});
 }]);

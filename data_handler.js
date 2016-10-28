@@ -2,13 +2,23 @@
 'use strict';
 var knex = require('knex')({
   client: 'pg',
+/*
+  connection: {
+    host     : 'localhost',
+    port 	 : '5432',
+    user     : 'dcr',
+    password : '',
+    database : 'inventory',
+    charset  : 'utf8'
+  }
+*/
   connection: {
     host     : '127.0.0.1',
-    port 	 : '5432',
+    port     : '5432',
     user     : 'admin',
     password : 'a',
     database : 'inventory',
-    charset  : 'utf8'
+    charset  : 'utf-8'
   }
 });
 
