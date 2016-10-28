@@ -88,4 +88,4 @@ Parts.fetchAll().then(function (transactions) {
         transactions.forEach(function (model) {
             console.log(model)
         })    
-    })
+    });
