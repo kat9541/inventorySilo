@@ -1,5 +1,8 @@
 var promise = require('bluebird');
 //require('dotenv').config();
+var data_handler = require('./data_handler');
+
+
 
 var options = {
   // Initialization Options
@@ -9,6 +12,15 @@ var options = {
 var pgp = require('pg-promise')(options);
 var connectionString = 'postgres://admin:a@localhost:5432/inventory';
 var db = pgp(connectionString);
+
+/*data_handler.partsModel.fetchAll().then(function (transactions) {
+        transactions.forEach(function (model) {
+            console.log(model.attributes)
+        })    
+    });*/
+
+//console.log(data_handler.knexQuery.select().from('parts'));
+
 
 // add query functions
 function getWearableQuantity(req,res,next){
@@ -96,12 +108,12 @@ function removeWearable(req, res, next) {
 
 function getAllParts(req, res, next) {
 
-  db.any('select * from parts')
+  data_handler.expParts.fetchAll()
     .then(function (data) {
       res.status(200)
         .json({
           status: 'success',
-          data: data,
+          data: data.toJSON(),
           message: 'Retrieved all Parts'
         });
     })

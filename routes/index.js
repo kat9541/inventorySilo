@@ -16,6 +16,7 @@ router.get('/api/wearables/:id', db.getWearable);
 router.post('/api/wearables', db.sendWearable);
 router.delete('/api/wearables/:id', db.removeWearable);
 
+
 /*Parts API*/
 router.get('/api/allparts',db.getAllParts);
 router.get('/api/parts/:id', db.getPart);
