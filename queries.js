@@ -2,7 +2,10 @@ var promise = require('bluebird');
 //require('dotenv').config();
 var data_handler = require('./data_handler');
 
-
+data_handler.expProducts.count('*')
+    .then(function (data) {
+      console.log(data);
+    })
 
 var options = {
   // Initialization Options
@@ -24,13 +27,13 @@ var db = pgp(connectionString);
 
 // add query functions
 function getWearableQuantity(req,res,next){
-    db.any('select count(*) from products')
+    data_handler.expProducts.count('*')
     .then(function (data) {
       res.status(200)
         .json({
           status: 'success',
           data: data,
-          message: 'Retrieved wearables quantity'
+          message: 'Retrieved Quantity'
         });
     })
     .catch(function (err) {
