@@ -1,5 +1,11 @@
 var promise = require('bluebird');
 //require('dotenv').config();
+var data_handler = require('./data_handler');
+
+data_handler.expProducts.count('*')
+    .then(function (data) {
+      console.log(data);
+    })
 
 var options = {
   // Initialization Options
@@ -11,15 +17,24 @@ var connectionString = 'postgres://admin:a@localhost:5432/inventory';
 //var connectionString = 'postgres://dcr@localhost:5432/inventory';
 var db = pgp(connectionString);
 
+/*data_handler.partsModel.fetchAll().then(function (transactions) {
+        transactions.forEach(function (model) {
+            console.log(model.attributes)
+        })    
+    });*/
+
+//console.log(data_handler.knexQuery.select().from('parts'));
+
+
 // add query functions
 function getWearableQuantity(req,res,next){
-    db.any('select count(*) from products')
+    data_handler.expProducts.count('*')
     .then(function (data) {
       res.status(200)
         .json({
           status: 'success',
           data: data,
-          message: 'Retrieved wearables quantity'
+          message: 'Retrieved Quantity'
         });
     })
     .catch(function (err) {
@@ -97,12 +112,12 @@ function removeWearable(req, res, next) {
 
 function getAllParts(req, res, next) {
 
-  db.any('select * from parts')
+  data_handler.expParts.fetchAll()
     .then(function (data) {
       res.status(200)
         .json({
           status: 'success',
-          data: data,
+          data: data.toJSON(),
           message: 'Retrieved all Parts'
         });
     })
