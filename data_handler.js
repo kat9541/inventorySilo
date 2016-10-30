@@ -2,7 +2,6 @@
 'use strict';
 var knex = require('knex')({
   client: 'pg',
-/*
   connection: {
     host     : 'localhost',
     port 	 : '5432',
@@ -11,15 +10,14 @@ var knex = require('knex')({
     database : 'inventory',
     charset  : 'utf8'
   }
-*/
-  connection: {
-    host     : '127.0.0.1',
-    port     : '5432',
-    user     : 'admin',
-    password : 'a',
-    database : 'inventory',
-    charset  : 'utf-8'
-  }
+  // connection: {
+  //   host     : '127.0.0.1',
+  //   port     : '5432',
+  //   user     : 'admin',
+  //   password : 'a',
+  //   database : 'inventory',
+  //   charset  : 'utf-8'
+  // }
 });
 
 var bookshelf = require('bookshelf')(knex);

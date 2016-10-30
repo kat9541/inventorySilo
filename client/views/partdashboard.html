@@ -1,3 +1,22 @@
 <div>
     <navbar></navbar>
+    <div>
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Cost</th>
+                <th>Recommended Amount</th>
+            </tr>
+            <tr ng-repeat="part in parts track by $index">
+                <td class="checkbox"></td>
+                <td ng-model="part.id">{{part.id}}</td>
+                <td ng-model="part.name">{{part.name}}</td>
+                <td ng-model="part.quantity">{{part.quantity}}</td>
+                <td ng-model="part.cost">{{part.cost}}</td>
+                <td ng-model="part.recamt">{{part.recamt}}</td>
+            </tr>
+        </table>
+    </div>
 </div>
