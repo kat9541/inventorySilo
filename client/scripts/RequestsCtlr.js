@@ -2,7 +2,11 @@ angular.module('Inventory')
     .service('DataService', function () {})
     .controller('RequestsCtlr', ['$scope', 'dataService', '$location', function ($scope, dataService, $location) {
 
-        console.log('RequestsCtlr initialized');
-        console.log($location.path());
+        $('#requestsItem').addClass("active");
+        var elm = $('span');
+        elm.addClass("sr-only");
+        elm.html = '(current)';
+        $('#requestsLink').append(elm);
+        $('#addNew').append(' Request');
 
     }]);
