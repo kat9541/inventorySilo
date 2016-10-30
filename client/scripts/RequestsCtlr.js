@@ -9,4 +9,16 @@ angular.module('Inventory')
         $('#requestsLink').append(elm);
         $('#addNew').append(' Request');
 
+        $scope.requests = [];
+
+        dataService.getRequests()
+            .then(function successCallback(response) {
+
+                $scope.parts = response.data.data;
+
+            }, function errorCallback(response) {
+               alert("Please help");
+            });
+
+
     }]);

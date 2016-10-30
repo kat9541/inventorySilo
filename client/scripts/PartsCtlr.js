@@ -8,4 +8,15 @@ angular.module('Inventory')
             elm.html = '(current)';
             $('#partsLink').append(elm);
             $('#addNew').append(' Part');
+
+            $scope.parts = [];
+
+            dataService.getParts()
+                .then(function successCallback(response) {
+
+                        $scope.parts = response.data.data;
+
+                }, function errorCallback(response) {
+                        alert("Please help");
+                });
     }]);

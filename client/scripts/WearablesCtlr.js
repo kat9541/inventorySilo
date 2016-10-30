@@ -8,4 +8,16 @@ angular.module('Inventory')
         elm.html = '(current)';
         $('#productsLink').append(elm);
         $('#addNew').append(' Wearable');
+
+        $scope.wearables = [];
+
+        dataService.getWearables()
+            .then(function successCallback(response) {
+
+                $scope.wearables = response.data.data;
+
+            }, function errorCallback(response) {
+                alert("Please help");
+            });
+
     }]);

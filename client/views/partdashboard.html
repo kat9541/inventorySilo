@@ -9,9 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#">
                     <img id="logo" src="../assets/343_logo_nobackground.png">
-                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,14 +48,15 @@
                 <th>Quantity</th>
                 <th>Cost</th>
                 <th>Recommended Amount</th>
+                <th>Options</th>
             </tr>
             <tr ng-repeat="part in parts track by $index">
-                <td class="checkbox"></td>
                 <td ng-model="part.id">{{part.id}}</td>
                 <td ng-model="part.name">{{part.name}}</td>
                 <td ng-model="part.quantity">{{part.quantity}}</td>
                 <td ng-model="part.cost">{{part.cost}}</td>
                 <td ng-model="part.recamt">{{part.recamt}}</td>
+                <td></td>
             </tr>
         </table>
     </div>

@@ -20,21 +20,19 @@ angular.module('Inventory').service('dataService', ['$http', function ($http) {
     };
 
     // Not Implemented Yet???
-/*
 
-     this.getAllParts = function () {
-     return $http.get(urlBaseParts);
+     this.getParts = function () {
+        return $http.get('/api/allparts');
      };
 
      this.getPartById = function (id) {
-     return $http.get(urlBaseParts + '/' + id);
+        return $http.get(urlBaseParts + '/' + id);
      };
 
      this.getPartsExpenses = function () {
-     return $http.get(urlBaseParts + expenses);
+        return $http.get(urlBaseParts + expenses);
      };
 
-*/
 
 
 }]);

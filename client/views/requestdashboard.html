@@ -9,9 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#">
                     <img id="logo" src="../assets/343_logo_nobackground.png">
-                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,6 +40,24 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+    <div>
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Date Sent</th>
+                <th>Seen</th>
+                <th>Response</th>
+                <th>Options</th>
+            </tr>
+            <tr ng-repeat="req in requests track by $index">
+                <td ng-model="req.id"></td>
+                <td ng-model="req.datesent"></td>
+                <td ng-model="req.seen"></td>
+                <td ng-model="req.response"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
     <div class="modal fade" id="newRequestModal" tabindex="-1" role="dialog"
          aria-labelledby="newRequestModal" aria-hidden="true">
         <div class="modal-dialog modal-lg">
