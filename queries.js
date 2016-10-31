@@ -152,6 +152,65 @@ var partID = parseInt(req.params.id);
 
 }
 
+function sendProductOrder(req, res, next){
+    new data_handler.expProductsOrder({address: req.body.address,
+     quantity: req.body.quantity
+    }).save()
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data.toJSON(),
+          message: 'Inserted one product order'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+
+}
+
+function sendPartOrder(req, res, next){
+  new data_handler.expPartOrders({partid: req.body.partid,
+     quantity: req.body.quantity,
+     totalcost: req.body.totalcost
+    }).save()
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data.toJSON(),
+          message: 'Inserted one product order'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+
+
+
+
+
+function sendRefurbishOrder(req, res, next){
+   /*
+    Discuss this endpoint with team.
+    Customer support wants to send us an order for refurbished items
+    currently we have a database that stores product order but doesn't
+    have information on what type of product they are ordering only the id.
+    We can use the same endpoint but just add another column which specifies
+    what coniditon the product is in i.e. new, refurb, etc.
+
+
+
+
+   */
+
+}
+
+
+
 
 module.exports = {
     getWearableQuantity: getWearableQuantity,
@@ -161,5 +220,8 @@ module.exports = {
     getAllWearables: getAllWearables,
     getAllParts: getAllParts,
     getPart: getPart,
-    getPartsExpenses: getPartsExpenses
+    getPartsExpenses: getPartsExpenses,
+    sendProductOrder: sendProductOrder,
+    sendRefurbishOrder: sendRefurbishOrder,
+    sendPartOrder: sendPartOrder
 };

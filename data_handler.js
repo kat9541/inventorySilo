@@ -106,7 +106,7 @@ var Parts = bookshelf.Model.extend({
 });
 
 var PartOrders = bookshelf.Model.extend({
-  tableName: 'parts_orders'
+  tableName: 'part_orders'
 });
 
 var ProductOrders = bookshelf.Model.extend({
