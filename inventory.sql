@@ -6,7 +6,7 @@ CREATE ROLE admin PASSWORD 'a' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;
 
 
 INSERT INTO products (name, type, quantity, active)
-  VALUES ('WEARABLE1', 'ATHLETIC', 500, 0);
+  VALUES ('WEARABLE1', 'ATHLETIC', 500, "none");
 
 INSERT INTO parts (name, quantity, cost, recamt)
   VALUES ('PHILLIPS', 50, 5.99, 50);
