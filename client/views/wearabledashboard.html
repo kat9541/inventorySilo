@@ -1,5 +1,4 @@
 <div>
-
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -43,16 +42,15 @@
     </nav>
     <div>
         <table class="table table-bordered">
-            <thead>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Quantity</th>
-            <th>Active?</th>
-            <th>Status</th>
-            <th>Options</th>
-            </thead>
-            <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Quantity</th>
+                <th>Active?</th>
+                <th>Status</th>
+                <th>Options</th>
+            </tr>
             <tr ng-repeat="wear in wearables track by $index">
                 <td ng-model="wear.id">{{wear.id}}</td>
                 <td ng-model="wear.name">{{wear.name}}</td>
@@ -61,12 +59,49 @@
                 <td ng-model="wear.active">{{wear.active}}</td>
                 <td ng-model="wear.status">{{wear.status}}</td>
                 <td>
-                    <button class="btn btn-primary" ng-click=>Edit</button>
-                    <button class="btn btn-danger" ng-click="deleteWearable(wear.id, $index)">Delete</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#editProductModal"
+                            ng-click="">Edit</button>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteProductModal"
+                            ng-click="deleteWearable(wear.id, $index)">Delete</button>
                 </td>
             </tr>
-            </tbody>
         </table>
+    </div>
+</div>
+<div class="modal fade" id="deleteProductModal" tabindex="-1" role="dialog"
+     aria-labelledby="newProductLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="deleteProductModalLabel">Delete Product</h4>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure you wanted to delete this?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editProductModal" tabindex="-1" role="dialog"
+     aria-labelledby="editProductModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="editProductModalLabel">Edit Product</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Save Changes</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
     </div>
 </div>
 

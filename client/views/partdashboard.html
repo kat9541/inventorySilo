@@ -56,8 +56,49 @@
                 <td ng-model="part.quantity">{{part.quantity}}</td>
                 <td ng-model="part.cost">{{part.cost}}</td>
                 <td ng-model="part.recamt">{{part.recamt}}</td>
-                <td></td>
+                <td>
+                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPartModal"
+                           ng-click="">Edit</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePartModal"
+                            ng-click="">Delete</button>
+                </td>
             </tr>
         </table>
+    </div>
+</div>
+<div class="modal fade" id="deletePartModal" tabindex="-1" role="dialog"
+     aria-labelledby="deletePartModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="deletePartModalLabel">Delete Part</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editPartModal" tabindex="-1" role="dialog"
+    aria-labelledby="editPartModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="editPartModalLabel">Edit Part</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Save Changes</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
     </div>
 </div>
