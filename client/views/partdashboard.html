@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                    <img id="logo" src="../assets/343_logo_nobackground.png">
+                <img id="logo" src="../assets/343_logo_nobackground.png">
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -40,30 +40,65 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <div>
-        <table class="table table-bordered">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Cost</th>
-                <th>Recommended Amount</th>
-                <th>Options</th>
-            </tr>
-            <tr ng-repeat="part in parts track by $index">
-                <td ng-model="part.id">{{part.id}}</td>
-                <td ng-model="part.name">{{part.name}}</td>
-                <td ng-model="part.quantity">{{part.quantity}}</td>
-                <td ng-model="part.cost">{{part.cost}}</td>
-                <td ng-model="part.recamt">{{part.recamt}}</td>
-                <td>
-                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPartModal"
-                           ng-click="">Edit</button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePartModal"
-                            ng-click="">Delete</button>
-                </td>
-            </tr>
-        </table>
+    <div class="flex-container">
+        <div id="filters">
+            <div class="panel">
+                <div class="panel-heading text-center">
+                    <p id="optionsLabel">Options</p>
+                </div>
+                <div class="panel-body">
+                    <button type="button" class="btn btn-primary panelBtn">Some Action Here 1</button>
+                    <button type="button" class="btn btn-primary panelBtn">Some Action Here 2</button>
+                    <button type="button" class="btn btn-danger panelBtn">Delete Selected</button>
+                </div>
+            </div>
+        </div>
+        <div id="tableInfo">
+            <table class="table table-condensed table-bordered table-striped ">
+                <tr>
+                    <h4>Part Listings</h4>
+                </tr>
+                <!--<tr>-->
+                <!--<th class="text-center">-->
+                <!--Id-->
+                <!--<span class="glyphicon glyphicon-arrow-up"></span>-->
+                <!--</th>-->
+                <!--<th class="text-center">Name</th>-->
+                <!--<th class="text-center">Quantity</th>-->
+                <!--<th class="text-center">Cost</th>-->
+                <!--<th class="text-center">Rec. Amount</th>-->
+                <!--&lt;!&ndash;<th>Options</th>&ndash;&gt;-->
+                <!--</tr>-->
+                <tr>
+                    <td class="invisible"></td>
+                    <td><input class="form-control" type="text" placeholder="Id"></td>
+                    <td><input class="form-control" type="text" placeholder="Part Id"></td>
+                    <td><input class="form-control" type="text" placeholder="Type"></td>
+                    <td><input class="form-control" type="text" placeholder="Attribute"></td>
+                    <td><input class="form-control" type="text" placeholder="Description"></td>
+                    <td><input class="form-control" type="text" placeholder="Quantity"></td>
+                    <td><input class="form-control" type="number" placeholder="Cost"></td>
+                    <td><input class="form-control" type="number" placeholder="Rec. Amount"></td>
+                </tr>
+                <tr ng-repeat="part in parts track by $index">
+                    <td>
+                        <span class="checkbox-inline form-control"></span>
+                    </td>
+                    <td ng-model="part.id">{{part.id}}</td>
+                    <td ng-model="part.part_id">{{part.part_id}}</td>
+                    <td ng-model="part.type">{{part.type}}</td>
+                    <td ng-model="part.attribute">{{part.attribute}}</td>
+                    <td ng-model="part.description">{{part.description}}</td>
+                    <td ng-model="part.quantity">{{part.quantity}}</td>
+                    <td ng-model="part.cost">{{part.cost}}</td>
+                    <td ng-model="part.recamt">{{part.recamt}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPartModal"
+                                ng-click="">Edit</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 <div class="modal fade" id="deletePartModal" tabindex="-1" role="dialog"
@@ -85,7 +120,7 @@
     </div>
 </div>
 <div class="modal fade" id="editPartModal" tabindex="-1" role="dialog"
-    aria-labelledby="editPartModal" aria-hidden="true">
+     aria-labelledby="editPartModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
