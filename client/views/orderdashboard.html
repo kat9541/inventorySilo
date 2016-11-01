@@ -1,0 +1,107 @@
+<div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img id="logo" src="../assets/343_logo_nobackground.png">
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li id="partsItem"><a id="partsLink" href="/#/parts">Parts</a></li>
+                    <li id="productsItem"><a id="productsLink" href="/#/products">Products</a></li>
+                    <li id="requestsItem"><a id="requestsLink" href="/#/requests">Requests</a></li>
+                    <li id="ordersItem" class="active"><a id="ordersLink" href="#">Orders<span class="sr-only">(current)</span></a></li>
+                    <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<li><a href="#">Action</a></li>-->
+                    <!--<li><a href="#">Another action</a></li>-->
+                    <!--<li><a href="#">Something else here</a></li>-->
+                    <!--<li role="separator" class="divider"></li>-->
+                    <!--<li><a href="#">Separated link</a></li>-->
+                    <!--<li role="separator" class="divider"></li>-->
+                    <!--<li><a href="#">One more separated link</a></li>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="flex-container">
+        <div id="filters">
+            <div class="panel">
+                <div class="panel-heading text-center">
+                    <p id="optionsLabel">Options</p>
+                </div>
+                <div class="panel-body">
+                    <button type="button" class="btn btn-primary panelBtn">Approve Request(s)</button>
+                    <button type="button" class="btn btn-danger panelBtn">Deny Request(s)</button>
+                </div>
+            </div>
+        </div>
+        <div id="tableInfo">
+            <table class="table table-condensed table-striped">
+                <tr><h4>Requests</h4></tr>
+                <!--<tr>-->
+                <!--<th>Id</th>-->
+                <!--<th>Date Sent</th>-->
+                <!--<th>Seen</th>-->
+                <!--<th>Response</th>-->
+                <!--<th>Options</th>-->
+                <!--</tr>-->
+                <tr>
+                    <td class="invisible"></td>
+                    <td class="itemIdCol"><input class="form-control" type="text" placeholder="Id"></td>
+                    <td class="itemIdCol"><input class="form-control" type="text" placeholder="Part Id"></td>
+                    <td><input class="form-control" type="text" placeholder="Type"></td>
+                    <td><input class="form-control" type="text" placeholder="Attribute"></td>
+                    <td><input class="form-control" type="text" placeholder="Description"></td>
+                    <td class="numberCol"><input class="form-control" type="text" placeholder="Rec. Amount"></td>
+                    <td id="seenCol"><input class="form-control" type="text" placeholder="Seen?"></td>
+                    <td><input class="form-control" type="text" placeholder="Response"></td>
+                    <td><input class="form-control" type="text" placeholder="Date Sent"></td>
+                </tr>
+                <tr ng-repeat="req in requests track by $index">
+                    <td><span class="checkbox-inline form-control"></span></td>
+                    <td ng-model="req.id">{{req.id}}</td>
+                    <td ng-model="req.partid">{{req.partid}}</td>
+                    <td ng-model="req.type">{{req.type}}</td>
+                    <td ng-model="req.attribute">{{req.attribute}}</td>
+                    <td ng-model="req.description">{{req.description}}</td>
+                    <td ng-model="req.recamt">{{req.recamt}}</td>
+                    <td ng-model="req.seen">{{req.seen}}</td>
+                    <td ng-mddel="req.response">{{req.response}}</td>
+                    <td ng-model="req.datesent">{{req.datesent}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary rowElementBtn" data-toggle="modal" data-target="#viewRequestModal">View</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="newRequestModal" tabindex="-1" role="dialog"
+         aria-labelledby="newRequestModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times</button>
+                <h4 class="modal-title" id="newRequestModalLabel">Request New Part</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="createNewRequest()">Send Request</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+

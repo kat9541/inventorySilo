@@ -16,25 +16,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li id="partsItem"><a id="partsLink" href="/#/parts">Parts</a></li>
-                    <li id="productsItem"><a id="productsLink" href="#">Products</a></li>
+                    <li id="productsItem" class="active"><a id="productsLink" href="#">Products<span class="sr-only">(current)</span></a></li>
                     <li id="requestsItem"><a id="requestsLink" href="/#/requests">Requests</a></li>
                     <li id="ordersItem"><a id="ordersLink" href="/#/orders">Orders</a></li>
-                    <!--<li class="dropdown">-->
-                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>-->
-                    <!--<ul class="dropdown-menu">-->
-                    <!--<li><a href="#">Action</a></li>-->
-                    <!--<li><a href="#">Another action</a></li>-->
-                    <!--<li><a href="#">Something else here</a></li>-->
-                    <!--<li role="separator" class="divider"></li>-->
-                    <!--<li><a href="#">Separated link</a></li>-->
-                    <!--<li role="separator" class="divider"></li>-->
-                    <!--<li><a href="#">One more separated link</a></li>-->
-                    <!--</ul>-->
-                    <!--</li>-->
                 </ul>
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
-                        <li><a id="addNew" href="#">Add New</a></li>
+                        <li><a id="addNew" href="#">Add New Product</a></li>
                     </ul>
                 </div>
             </div><!-- /.navbar-collapse -->
@@ -66,15 +54,6 @@
                     <td class="numberCol"><input class="form-control" type="text" placeholder="Quantity"></td>
                     <td><input class="form-control" type="text" placeholder="Active?"></td>
                 </tr>
-                <!--<tr>-->
-                    <!--<th>Id</th>-->
-                    <!--<th>Name</th>-->
-                    <!--<th>Type</th>-->
-                    <!--<th>Quantity</th>-->
-                    <!--<th>Active?</th>-->
-                    <!--<th>Status</th>-->
-                    <!--<th>Options</th>-->
-                <!--</tr>-->
                 <tr ng-repeat="wear in wearables track by $index">
                     <td><span><input type="checkbox"></span></td>
                     <td ng-model="wear.id">{{wear.id}}</td>
@@ -85,8 +64,6 @@
                     <td>
                         <button type="button" class="btn btn-primary rowElementBtn" data-toggle="modal" data-target="#editProductModal"
                                 ng-click="">Some Action</button>
-                            <!--<button class="btn btn-danger" data-toggle="modal" data-target="#deleteProductModal"-->
-                                    <!--ng-click="deleteWearable(wear.id, $index)">Some Action</button>-->
                     </td>
                 </tr>
             </table>
