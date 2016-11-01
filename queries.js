@@ -188,7 +188,23 @@ function sendPartOrder(req, res, next){
     });
 }
 
+function getPartRequests(req, res, next){
+ data_handler.expReqParts.fetchAll()
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data.toJSON(),
+          message: 'Retrieved all Part Requests'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
 
+
+
+}
 
 
 
@@ -223,5 +239,6 @@ module.exports = {
     getPartsExpenses: getPartsExpenses,
     sendProductOrder: sendProductOrder,
     sendRefurbishOrder: sendRefurbishOrder,
-    sendPartOrder: sendPartOrder
+    sendPartOrder: sendPartOrder,
+    getPartRequests: getPartRequests
 };
