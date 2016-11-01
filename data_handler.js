@@ -47,7 +47,7 @@ knex.schema.createTableIfNotExists('parts', function(table){
   table.string('attribute');
   table.string('description');
   table.integer('recamt');
-  table.integer('price');
+  table.decimal('price');
   table.integer('quantity');
   
 
