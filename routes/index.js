@@ -22,12 +22,24 @@ router.get('/api/allparts',db.getAllParts);
 router.get('/api/parts/:id', db.getPart);
 router.get('/api/partsexpenses', db.getPartsExpenses);
 
+/*Part Requests - Manufacturing uses this to request new parts or more parts*/
+router.get('/api/partrequests', db.getPartRequests);
+
+
+
+
 /*Product Orders API*/
 /*This is used by sales to order products from us*/
 router.post('/api/productorder', db.sendProductOrder);
 
+
+
+
 /*Refurbished Product Orders API*/
 router.post('/api/productorder/refurbished', db.sendRefurbishOrder);
+
+
+
 
 /*This is used by Manufacturing to order parts form us*/
 router.post('/api/partorder', db.sendPartOrder);

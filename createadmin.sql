@@ -1,0 +1,4 @@
+/*Run this file to create admin user*/
+
+CREATE ROLE admin PASSWORD 'a' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;
+CREATE DATABASE inventory WITH OWNER admin;
