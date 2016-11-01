@@ -42,10 +42,15 @@ knex.schema.createTableIfNotExists('products', function(table){
 knex.schema.createTableIfNotExists('parts', function(table){
  
   table.increments('id').primary();
-  table.string('name');
-  table.integer('quantity');
-  table.integer('cost');
+  table.integer('partid');
+  table.string('type');
+  table.string('attribute');
+  table.string('description');
   table.integer('recamt');
+  table.integer('price');
+  table.integer('quantity');
+  
+
 
 }).then(function () {
   console.log('parts Table Created');
@@ -87,9 +92,14 @@ knex.schema.createTableIfNotExists('products_refurb', function(table){
 knex.schema.createTableIfNotExists('parts_requests', function(table){
  
   table.increments('id').primary();
-  table.dateTime('datesent');
+  table.integer('partid');
+  table.string('type');
+  table.string('attribute');
+  table.string('description');
+  table.integer('recamt');
   table.string('seen');
   table.string('response');
+  table.dateTime('datesent');
 
 }).then(function () {
   console.log('parts_requested Table Created');
