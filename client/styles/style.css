@@ -26,3 +26,29 @@
 #optionsLabel {
     font-weight: bolder;
 }
+
+.numberCol {
+    width: 10%;
+}
+
+.itemIdCol {
+    width: 8%;
+}
+
+#seenCol {
+    width: 8%;
+}
+
+.rowElement {
+    border-right:thick;
+    border-right-color: gray;
+}
+
+.rowElementBtn {
+    width: 100%;
+}
+
+#topTableD {
+
+    border-left:none;
+}

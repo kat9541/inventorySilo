@@ -19,5 +19,9 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'views/requestdashboard.html',
             controller: 'RequestsCtlr'
         })
+        .when('/orders', {
+            templateUrl: 'views/orderdashboard.html',
+            controller: 'OrdersCtlr'
+        })
         .otherwise({ redirectTo: '/wearables'});
 }]);

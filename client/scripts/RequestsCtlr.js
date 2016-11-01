@@ -14,7 +14,7 @@ angular.module('Inventory')
         dataService.getRequests()
             .then(function successCallback(response) {
 
-                $scope.parts = response.data.data;
+                $scope.requests = response.data.data;
 
             }, function errorCallback(response) {
                alert("Please help");

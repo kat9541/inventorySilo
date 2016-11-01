@@ -18,7 +18,7 @@
                     <li id="partsItem"><a id="partsLink" href="/#/parts">Parts</a></li>
                     <li id="productsItem"><a id="productsLink" href="#">Products</a></li>
                     <li id="requestsItem"><a id="requestsLink" href="/#/requests">Requests</a></li>
-                    <li><a href="#"><span></span></a></li>
+                    <li id="ordersItem"><a id="ordersLink" href="/#/orders">Orders</a></li>
                     <!--<li class="dropdown">-->
                     <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>-->
                     <!--<ul class="dropdown-menu">-->
@@ -40,32 +40,57 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <div>
-        <table class="table table-bordered">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Quantity</th>
-                <th>Active?</th>
-                <th>Status</th>
-                <th>Options</th>
-            </tr>
-            <tr ng-repeat="wear in wearables track by $index">
-                <td ng-model="wear.id">{{wear.id}}</td>
-                <td ng-model="wear.name">{{wear.name}}</td>
-                <td ng-model="wear.typeprod">{{wear.typeprod}}</td>
-                <td ng-model="wear.quantity">{{wear.quantity}}</td>
-                <td ng-model="wear.active">{{wear.active}}</td>
-                <td ng-model="wear.status">{{wear.status}}</td>
-                <td>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#editProductModal"
-                            ng-click="">Edit</button>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteProductModal"
-                            ng-click="deleteWearable(wear.id, $index)">Delete</button>
-                </td>
-            </tr>
-        </table>
+    <div class="flex-container">
+        <div id="filters">
+            <div class="panel">
+                <div class="panel-heading text-center">
+                    <p id="optionsLabel">Options</p>
+                </div>
+            </div>
+            <div class="panel-body">
+                <button type="button" class="btn btn-primary panelBtn">Some Action Here 1</button>
+                <button type="button" class="btn btn-primary panelBtn">Some Action Here 2</button>
+                <button type="button" class="btn btn-danger panelBtn">Delete Selected</button>
+            </div>
+        </div>
+        <div id="tableInfo">
+            <table class="table table-condensed table-striped">
+                <tr>
+                    <h4>Wearable Listings</h4>
+                </tr>
+                <tr>
+                    <td class="invisible"></td>
+                    <td class="itemIdCol"><input class="form-control" type="text" placeholder="Id"></td>
+                    <td><input class="form-control" type="text" placeholder="Name"></td>
+                    <td><input class="form-control" type="text" placeholder="Type"></td>
+                    <td class="numberCol"><input class="form-control" type="text" placeholder="Quantity"></td>
+                    <td><input class="form-control" type="text" placeholder="Active?"></td>
+                </tr>
+                <!--<tr>-->
+                    <!--<th>Id</th>-->
+                    <!--<th>Name</th>-->
+                    <!--<th>Type</th>-->
+                    <!--<th>Quantity</th>-->
+                    <!--<th>Active?</th>-->
+                    <!--<th>Status</th>-->
+                    <!--<th>Options</th>-->
+                <!--</tr>-->
+                <tr ng-repeat="wear in wearables track by $index">
+                    <td><span><input type="checkbox"></span></td>
+                    <td ng-model="wear.id">{{wear.id}}</td>
+                    <td ng-model="wear.name">{{wear.name}}</td>
+                    <td ng-model="wear.type">{{wear.type}}</td>
+                    <td ng-model="wear.quantity">{{wear.quantity}}</td>
+                    <td ng-model="wear.active">{{wear.active}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary rowElementBtn" data-toggle="modal" data-target="#editProductModal"
+                                ng-click="">Some Action</button>
+                            <!--<button class="btn btn-danger" data-toggle="modal" data-target="#deleteProductModal"-->
+                                    <!--ng-click="deleteWearable(wear.id, $index)">Some Action</button>-->
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 <div class="modal fade" id="deleteProductModal" tabindex="-1" role="dialog"

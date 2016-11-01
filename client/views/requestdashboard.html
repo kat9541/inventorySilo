@@ -18,7 +18,7 @@
                     <li id="partsItem"><a id="partsLink" href="/#/parts">Parts</a></li>
                     <li id="productsItem"><a id="productsLink" href="/#/products">Products</a></li>
                     <li id="requestsItem"><a id="requestsLink" href="#">Requests</a></li>
-                    <li><a href="#"><span></span></a></li>
+                    <li id="ordersItem"><a id="ordersLink" href="/#/orders">Orders</a></li>
                     <!--<li class="dropdown">-->
                     <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>-->
                     <!--<ul class="dropdown-menu">-->
@@ -53,24 +53,44 @@
             </div>
         </div>
         <div id="tableInfo">
-            
+            <table class="table table-condensed table-striped">
+                <tr><h4>Requests</h4></tr>
+                <!--<tr>-->
+                    <!--<th>Id</th>-->
+                    <!--<th>Date Sent</th>-->
+                    <!--<th>Seen</th>-->
+                    <!--<th>Response</th>-->
+                    <!--<th>Options</th>-->
+                <!--</tr>-->
+                <tr>
+                    <td class="invisible"></td>
+                    <td class="itemIdCol"><input class="form-control" type="text" placeholder="Id"></td>
+                    <td class="itemIdCol"><input class="form-control" type="text" placeholder="Part Id"></td>
+                    <td><input class="form-control" type="text" placeholder="Type"></td>
+                    <td><input class="form-control" type="text" placeholder="Attribute"></td>
+                    <td><input class="form-control" type="text" placeholder="Description"></td>
+                    <td class="numberCol"><input class="form-control" type="text" placeholder="Rec. Amount"></td>
+                    <td id="seenCol"><input class="form-control" type="text" placeholder="Seen?"></td>
+                    <td><input class="form-control" type="text" placeholder="Response"></td>
+                    <td><input class="form-control" type="text" placeholder="Date Sent"></td>
+                </tr>
+                <tr ng-repeat="req in requests track by $index">
+                    <td><span class="checkbox-inline form-control"></span></td>
+                    <td ng-model="req.id">{{req.id}}</td>
+                    <td ng-model="req.partid">{{req.partid}}</td>
+                    <td ng-model="req.type">{{req.type}}</td>
+                    <td ng-model="req.attribute">{{req.attribute}}</td>
+                    <td ng-model="req.description">{{req.description}}</td>
+                    <td ng-model="req.recamt">{{req.recamt}}</td>
+                    <td ng-model="req.seen">{{req.seen}}</td>
+                    <td ng-mddel="req.response">{{req.response}}</td>
+                    <td ng-model="req.datesent">{{req.datesent}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary rowElementBtn" data-toggle="modal" data-target="#viewRequestModal">View</button>
+                    </td>
+                </tr>
+            </table>
         </div>
-        <table class="table table-bordered">
-            <tr>
-                <th>Id</th>
-                <th>Date Sent</th>
-                <th>Seen</th>
-                <th>Response</th>
-                <th>Options</th>
-            </tr>
-            <tr ng-repeat="req in requests track by $index">
-                <td ng-model="req.id"></td>
-                <td ng-model="req.datesent"></td>
-                <td ng-model="req.seen"></td>
-                <td ng-model="req.response"></td>
-                <td></td>
-            </tr>
-        </table>
     </div>
     <div class="modal fade" id="newRequestModal" tabindex="-1" role="dialog"
          aria-labelledby="newRequestModal" aria-hidden="true">

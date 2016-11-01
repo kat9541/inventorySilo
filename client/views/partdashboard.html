@@ -18,7 +18,7 @@
                     <li id="partsItem"><a id="partsLink" href="#">Parts</a></li>
                     <li id="productsItem"><a id="productsLink" href="/#/products">Products</a></li>
                     <li id="requestsItem"><a id="requestsLink" href="/#/requests">Requests</a></li>
-                    <li><a href="#"><span></span></a></li>
+                    <li id="ordersItem"><a id="ordersLink" href="/#/orders">Orders</a></li>
                     <!--<li class="dropdown">-->
                     <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>-->
                     <!--<ul class="dropdown-menu">-->
@@ -32,11 +32,11 @@
                     <!--</ul>-->
                     <!--</li>-->
                 </ul>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li><a id="addNew" href="#">Add New</a></li>
-                    </ul>
-                </div>
+                    <!--<div class="navbar-right">-->
+                        <!--<ul class="nav navbar-nav">-->
+                            <!--<li><a id="addNew" href="#">Add New</a></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
@@ -47,14 +47,14 @@
                     <p id="optionsLabel">Options</p>
                 </div>
                 <div class="panel-body">
-                    <button type="button" class="btn btn-primary panelBtn">Some Action Here 1</button>
-                    <button type="button" class="btn btn-primary panelBtn">Some Action Here 2</button>
+                    <button type="button" class="btn btn-primary panelBtn">Send To Manufacturing</button>
+                    <button type="button" class="btn btn-primary panelBtn">Restock Selected</button>
                     <button type="button" class="btn btn-danger panelBtn">Delete Selected</button>
                 </div>
             </div>
         </div>
         <div id="tableInfo">
-            <table class="table table-condensed table-bordered table-striped ">
+            <table class="table table-condensed table-striped ">
                 <tr>
                     <h4>Part Listings</h4>
                 </tr>
@@ -70,30 +70,28 @@
                 <!--&lt;!&ndash;<th>Options</th>&ndash;&gt;-->
                 <!--</tr>-->
                 <tr>
-                    <td class="invisible"></td>
-                    <td><input class="form-control" type="text" placeholder="Id"></td>
-                    <td><input class="form-control" type="text" placeholder="Part Id"></td>
+                    <td id="topTableD" class="invisible"></td>
+                    <td class="itemIdCol"><input class="form-control" type="text" placeholder="Id"></td>
+                    <td class="itemIdCol"><input class="form-control" type="text" placeholder="P_Id"></td>
                     <td><input class="form-control" type="text" placeholder="Type"></td>
                     <td><input class="form-control" type="text" placeholder="Attribute"></td>
                     <td><input class="form-control" type="text" placeholder="Description"></td>
-                    <td><input class="form-control" type="text" placeholder="Quantity"></td>
-                    <td><input class="form-control" type="number" placeholder="Cost"></td>
-                    <td><input class="form-control" type="number" placeholder="Rec. Amount"></td>
+                    <td class="numberCol"><input class="form-control" type="text" placeholder="Quantity"></td>
+                    <td class="numberCol"><input class="form-control" type="text" placeholder="Cost"></td>
+                    <td class="numberCol"><input class="form-control" type="number" placeholder="Rec. Amount"></td>
                 </tr>
-                <tr ng-repeat="part in parts track by $index">
-                    <td>
-                        <span class="checkbox-inline form-control"></span>
-                    </td>
+                <tr  ng-repeat="part in parts track by $index">
+                    <td><span><input type="checkbox"></span></td>
                     <td ng-model="part.id">{{part.id}}</td>
                     <td ng-model="part.part_id">{{part.part_id}}</td>
                     <td ng-model="part.type">{{part.type}}</td>
                     <td ng-model="part.attribute">{{part.attribute}}</td>
                     <td ng-model="part.description">{{part.description}}</td>
                     <td ng-model="part.quantity">{{part.quantity}}</td>
-                    <td ng-model="part.cost">{{part.cost}}</td>
+                    <td ng-model="part.cost">{{part.cost | currency }}</td>
                     <td ng-model="part.recamt">{{part.recamt}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPartModal"
+                        <button type="button" class="btn btn-primary rowElementBtn" data-toggle="modal" data-target="#editPartModal"
                                 ng-click="">Edit</button>
                     </td>
                 </tr>
