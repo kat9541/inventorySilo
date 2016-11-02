@@ -38,13 +38,14 @@ router.post('/api/productorder', db.sendProductOrder);
 
 
 
-/*Refurbished Product Orders API*/
+/*Refurbished Product Orders API INACTIVE!!!!!*/
 router.post('/api/productorder/refurbished', db.sendRefurbishOrder);
 
 
 
-
+/*This is how we keep records of parts we ordered from vendors*/
 router.post('/api/partorder', db.sendPartOrder);
+router.get('/api/allpartorders', db.getAllPartOrders);
 
 
 

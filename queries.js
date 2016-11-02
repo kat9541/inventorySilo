@@ -242,13 +242,32 @@ function sendPartRequest(req, res, next) {
         .json({
           status: 'success',
           data: data.toJSON(),
-          message: 'Inserted one part'
+          message: 'Inserted one part request'
         });
     })
     .catch(function (err) {
       return next(err);
     });
 }
+
+
+
+function getAllPartOrders(req, res, next) {
+
+  data_handler.expPartOrders.fetchAll()
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data.toJSON(),
+          message: 'Retrieved all part orders'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
 
 function sendRefurbishOrder(req, res, next){
    /*
@@ -283,5 +302,6 @@ module.exports = {
     sendPartOrder: sendPartOrder,
     getPartRequests: getPartRequests,
     sendPart : sendPart,
-    sendPartRequest : sendPartRequest
+    sendPartRequest : sendPartRequest,
+    getAllPartOrders : getAllPartOrders
 };
