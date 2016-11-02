@@ -14,7 +14,6 @@ var pgp = require('pg-promise')(options);
 var connectionString = 'postgres://admin:a@localhost:5432/inventory';
 var db = pgp(connectionString);
 
-data_handler.knexQuery('parts').sum('cost')
 
 // add query functions
 function getWearableQuantity(req,res,next){
@@ -180,7 +179,7 @@ function sendPartOrder(req, res, next){
         .json({
           status: 'success',
           data: data.toJSON(),
-          message: 'Inserted one product order'
+          message: 'Inserted one part order'
         });
     })
     .catch(function (err) {
@@ -206,8 +205,50 @@ function getPartRequests(req, res, next){
 
 }
 
+function sendPart(req, res, next) {
+    new data_handler.expParts({partid : req.body.partid,
+     type : req.body.type,
+      attribute : req.body.attribute,
+       description : req.body.description,
+        recamt : req.body.recamt,
+         price : req.body.price,
+          quantity : req.body.quantity
+    }).save()
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data.toJSON(),
+          message: 'Inserted one part'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
 
-
+function sendPartRequest(req, res, next) {
+    new data_handler.expReqParts({partid : req.body.partid,
+     type : req.body.type,
+      attribute : req.body.attribute,
+       description : req.body.description,
+        recamt : req.body.recamt,
+         seen : req.body.seen,
+          response : req.body.response,
+           datesent : req.body.datesent
+    }).save()
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data.toJSON(),
+          message: 'Inserted one part'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
 
 function sendRefurbishOrder(req, res, next){
    /*
@@ -240,5 +281,7 @@ module.exports = {
     sendProductOrder: sendProductOrder,
     sendRefurbishOrder: sendRefurbishOrder,
     sendPartOrder: sendPartOrder,
-    getPartRequests: getPartRequests
+    getPartRequests: getPartRequests,
+    sendPart : sendPart,
+    sendPartRequest : sendPartRequest
 };

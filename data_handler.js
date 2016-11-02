@@ -5,8 +5,8 @@ var knex = require('knex')({
   connection: {
     host     : 'localhost',
     port 	 : '5432',
-    user     : 'dcr',
-    password : '',
+    user     : 'admin',
+    password : 'a',
     database : 'inventory',
     charset  : 'utf8'
   }

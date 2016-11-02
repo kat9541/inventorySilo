@@ -21,9 +21,12 @@ router.delete('/api/wearables/:id', db.removeWearable);
 router.get('/api/allparts',db.getAllParts);
 router.get('/api/parts/:id', db.getPart);
 router.get('/api/partsexpenses', db.getPartsExpenses);
+router.post('/api/parts', db.sendPart);
+
 
 /*Part Requests - Manufacturing uses this to request new parts or more parts*/
 router.get('/api/partrequests', db.getPartRequests);
+router.post('/api/partrequests', db.sendPartRequest);
 
 
 
@@ -41,7 +44,6 @@ router.post('/api/productorder/refurbished', db.sendRefurbishOrder);
 
 
 
-/*This is used by Manufacturing to order parts form us*/
 router.post('/api/partorder', db.sendPartOrder);
 
 
